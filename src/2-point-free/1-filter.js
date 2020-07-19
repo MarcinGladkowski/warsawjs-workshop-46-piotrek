@@ -26,7 +26,12 @@
 const prop = propName => obj => obj[propName]
 const shorterThan = n => property => property.length < n
 const compose = (f, g) => x => f(g(x))
-
 export const getShortNamedAnimals = (animals) => animals.filter(compose(shorterThan(5), prop('name')));
 
-// more complex solution
+// more complex solution using pipe
+// const prop = property => x => x[property]
+// const map = fn => array => array.map(fn)
+// const composeRight = (...fs) => x => fs.reduceRight((x, f) => f(x), x)
+// const pipe = (...fs) => x => fs.reduce((x, f) => f(x), x)
+
+// export const getShortNamedAnimals = (animals) => animals.pipe()
