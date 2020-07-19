@@ -21,4 +21,12 @@
  * ]
  * ```
  */
-export const getShortNamedAnimals = null
+
+// First solution working only two functions
+const prop = propName => obj => obj[propName]
+const shorterThan = n => property => property.length < n
+const compose = (f, g) => x => f(g(x))
+
+export const getShortNamedAnimals = (animals) => animals.filter(compose(shorterThan(5), prop('name')));
+
+// more complex solution
