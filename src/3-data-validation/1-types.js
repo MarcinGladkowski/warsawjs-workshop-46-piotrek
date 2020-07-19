@@ -10,4 +10,26 @@
  * isA(Array)(1) // false
  * ```
  */
-export const isA = null
+
+const add = (x, y) => x + y
+add(2, 3) //=> 5
+
+const curryingAdd = x => y => x + y
+
+const curryingAddExecution = function (x) {
+  return function (y) {
+    return x + y
+  }
+}
+// how to understand it!
+// console.log([
+//     add(2, 3),
+//     curryingAdd(2)(3),
+//     curryingAddExecution(2)(3)
+// ])
+
+const is = type => value => {
+    return type === 'string' || type === 'number' ? typeof value === type : value instanceof type
+}
+
+export const isA = is;
