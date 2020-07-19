@@ -21,4 +21,5 @@
  * ```
  */
 export function getTotalSalary (employees) {
+    return employees.reduce((total,employee) =>  total + employee.salary, 0)
 }
