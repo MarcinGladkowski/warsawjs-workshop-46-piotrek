@@ -22,4 +22,12 @@
  * Output = ['Jane Wealthy', 'Dick Rich']
  * ```
  */
-export function getHighEarners (employees) {}
+export function getHighEarners (employees) {
+    const avg = employees.reduce((total, employee, index, array) => {
+        total += employee.salary;
+        if (index === array.length -1) return total / array.length;
+        return total;
+    }, 0);
+
+    return employees.filter(employee => employee.salary > avg).map(employee => `${employee.firstName} ${employee.lastName}`)
+}
