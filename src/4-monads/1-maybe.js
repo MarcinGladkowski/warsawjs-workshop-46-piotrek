@@ -18,4 +18,5 @@ const Maybe = {
 }
 
 export function safeGetProp (object, prop) {
+  return typeof object === 'object' && object !== null && prop in object ? Maybe.just(object[prop]) : Maybe.nothing()
 }
