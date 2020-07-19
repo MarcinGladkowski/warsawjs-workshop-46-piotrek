@@ -21,4 +21,7 @@
  * }) // true
  * ```
  */
-export const isObjectOf = null
+
+export const isObjectOf = schema => value => {
+    return (typeof value !== 'object' || value === null) ? false : Object.keys(value).every(prop => schema[prop](value[prop]))
+}
